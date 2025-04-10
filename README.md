@@ -1,5 +1,5 @@
 ## React-Expense-Tracker
-A basic React app to track daily expenses and manage your budget with ease.
+A basic React app to track daily expenses and manage your budget with ease !
 
 ### ✨ Features
 - Add and delete transactions
