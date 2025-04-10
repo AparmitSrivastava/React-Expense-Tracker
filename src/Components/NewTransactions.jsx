@@ -5,7 +5,7 @@ const Cont = styled(Box)`
 display:flex;
 flex-direction:column;
 & > h5 , & > div , & > button{
-margin-top:30px
+margin-top:20px
 }
 `
 

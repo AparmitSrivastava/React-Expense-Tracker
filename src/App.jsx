@@ -4,14 +4,30 @@ import './App.css'
 import Balance from './Components/Balance'
 import ExpenseCard from './Components/ExpenseCard'
 import NewTransactions from './Components/NewTransactions'
-import Transaction from './Components/Transaction'
+import Transactions from './Components/Transactions'
 
 
 const Header = styled(Typography)`
-font-size: 36px;
+font-size: 35px;
 color : blue;
 text-transform : uppercase;
 `
+
+const Main = styled(Box)`
+  display: flex;
+  background:rgb(141, 139, 139);
+  width: 800px;
+ border-radius:20px;
+ margin:auto;
+  & > div {
+    height: 70vh;
+    flex: 1; 
+    padding: 10px; 
+    overflow-y: auto; 
+  }
+`
+
+
 
 function App() {
 
@@ -26,7 +42,7 @@ function App() {
     <>
       <div className='App'>
         <Header>Expense tracker</Header>
-        <Box>
+        <Main>
 
           <Box>
             <Balance/>
@@ -35,10 +51,10 @@ function App() {
           </Box>
           
           <Box>
-            <Transaction transactions={transactions}/>
+            <Transactions transactions={transactions}/>
           </Box>
         
-        </Box>
+        </Main>
       </div>
     </>
   )

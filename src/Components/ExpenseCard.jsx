@@ -6,7 +6,7 @@ display:flex;
 width:100%;
 & > div {
   flex: 1;  
-  padding:10px;
+  padding:8px;
 }
 `
 
