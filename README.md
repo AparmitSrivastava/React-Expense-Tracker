@@ -7,6 +7,6 @@ A basic React app to track daily expenses and manage your budget with ease !
 - Minimal and responsive UI
 - Built with React functional components and hooks
 
-### 🛠 Tech Stack
+### 🛠 Tech Stack used-
 - React
 - CSS
