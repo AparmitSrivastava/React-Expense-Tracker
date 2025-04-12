@@ -1,19 +1,125 @@
-import React from 'react'
-import { Box, styled, Typography, Card, CardContent, TextField, Button, Divider, List, ListItem, ListItemText } from "@mui/material"
-
-const Detail = styled(ListItem)`
-margin-top:8px;
-`
+// import React from 'react'
+// import { Box, styled, Typography, Card, CardContent, TextField, Button, Divider, List, ListItem, ListItemText, ListItemIcon } from "@mui/material"
+// import DeleteIcon from '@mui/icons-material/Delete';
 
 
-const SingleTransaction = ({transaction}) => {
-    const bgcolor = transaction.amount>0 ? "green" : "red"
+// const Detail = styled(ListItem)`
+// margin-top:8px;
+// `
+
+
+// const SingleTransaction = ({ transaction, settransactions , transactions }) => {
+
+//     const deleteTransaction = (id) => {
+//         settransactions(transactions.filter(e=>e.id!==id))
+//     }
+
+
+//     const bgcolor = transaction.amount > 0 ? "green" : "red"
+//     return (
+//         <Detail style={{ background: bgcolor, color: '#fff', borderRadius: "10px" }}>
+//             <ListItemIcon>
+//                 <DeleteIcon onClick={() => { deleteTransaction(transaction.id) }} />
+//             </ListItemIcon>
+//             <ListItemText>{transaction.text}</ListItemText>
+//             <ListItemText>{transaction.amount}</ListItemText>
+//         </Detail>
+//     )
+// }
+
+// export default SingleTransaction
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { ListItem, ListItemText, ListItemIcon, IconButton, Typography, Box } from '@mui/material';
+import { Delete } from '@mui/icons-material';
+
+const SingleTransaction = ({ transaction, settransactions, transactions }) => {
+  const deleteTransaction = (id) => {
+    settransactions(transactions.filter(transaction => transaction.id !== id));
+  };
+
+  const isIncome = transaction.amount > 0;
+  
+  const formattedAmount = new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+    minimumFractionDigits: 2
+  }).format(transaction.amount);
+  
+
   return (
-    <Detail style={{ background: bgcolor, color: '#fff' , borderRadius:"10px" }}>
-        <ListItemText>{transaction.text}</ListItemText>
-        <ListItemText>{transaction.amount}</ListItemText>
-    </Detail>
-  )
-}
+    <Box 
+      className={`transaction-item ${isIncome ? 'income' : 'expense'}`}
+      sx={{ 
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '12px 16px',
+        borderRadius: '8px',
+        marginBottom: '8px',
+        borderLeft: isIncome ? '3px solid #22c55e' : '3px solid #ef4444',
+        border: '1px solid #f0f0f0'
+      }}
+    >
+      <Typography 
+        variant="body1" 
+        sx={{ 
+          fontWeight: 500,
+          color: '#333'
+        }}
+      >
+        {transaction.text}
+      </Typography>
+      
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        <Typography 
+          variant="body1" 
+          sx={{ 
+            fontWeight: 600,
+            color: isIncome ? '#22c55e' : '#ef4444'
+          }}
+        >
+          {isIncome ? '+' : ''}
+          {formattedAmount}
+        </Typography>
+        
+        <IconButton 
+          size="small" 
+          sx={{
+            color: '#6b7280',
+            minWidth: '32px',
+            height: '32px',
+            padding: 0,
+            borderRadius: '4px',
+            '&:hover': {
+              backgroundColor: 'rgba(0, 0, 0, 0.04)'
+            }
+          }}
+          onClick={() => deleteTransaction(transaction.id)}
+        >
+          <Delete fontSize="small" />
+        </IconButton>
+      </Box>
+    </Box>
+  );
+};
 
-export default SingleTransaction
+export default SingleTransaction;
+
+
+
+
