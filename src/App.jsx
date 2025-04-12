@@ -71,9 +71,7 @@
 // }
 
 // export default App
-
-
-// // we are using a array to store all the multiple transaction and sicne each of the compoennts created need that list of tranx for there individual tasks, its better that we perform all the array opr in the App.jsx itself as it is the parent component
+// we are using a array to store all the multiple transaction and sicne each of the compoennts created need that list of tranx for there individual tasks, its better that we perform all the array opr in the App.jsx itself as it is the parent component
 
 
 
@@ -106,7 +104,6 @@ function App() {
           <ExpenseCard tranx={transactions} />
           <NewTransactions settransactions={settransactions} />
         </Box>
-        
         
         <Box className="panel panel-right">
           <Transactions 
