@@ -1,3 +1,57 @@
+import { useState, useEffect } from 'react'
+import { Typography, Box } from "@mui/material"
+import './App.css'
+import Balance from './Components/Balance'
+import ExpenseCard from './Components/ExpenseCard'
+import NewTransactions from './Components/NewTransactions'
+import Transactions from './Components/Transactions'
+
+function App() {
+  const initialTransactions = JSON.parse(localStorage.getItem("transactions")) || [];
+  const [transactions, settransactions] = useState(initialTransactions);
+
+  // Save to localStorage whenever transactions change
+  useEffect(() => {
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+  }, [transactions]);
+
+  return (
+    <div className='App'>
+      <Typography variant="h4" component="h1" className="app-title">
+        Expense Tracker
+      </Typography>
+      
+      <Box className="main-container">
+        <Box className="panel panel-left">
+          <Balance tranx={transactions} />
+          <ExpenseCard tranx={transactions} />
+          <NewTransactions settransactions={settransactions} />
+        </Box>
+        
+        <Box className="panel panel-right">
+          <Transactions 
+            transactions={transactions} 
+            settransactions={settransactions} 
+          />
+        </Box>
+      </Box>
+    </div>
+  )
+}
+
+export default App
+
+
+
+
+
+
+
+
+
+
+
+
 // import { useState,useEffect } from 'react'
 // import { Typography, styled, Box } from "@mui/material"
 // import './App.css'
@@ -72,48 +126,3 @@
 
 // export default App
 // we are using a array to store all the multiple transaction and sicne each of the compoennts created need that list of tranx for there individual tasks, its better that we perform all the array opr in the App.jsx itself as it is the parent component
-
-
-
-import { useState, useEffect } from 'react'
-import { Typography, Box } from "@mui/material"
-import './App.css'
-import Balance from './Components/Balance'
-import ExpenseCard from './Components/ExpenseCard'
-import NewTransactions from './Components/NewTransactions'
-import Transactions from './Components/Transactions'
-
-function App() {
-  const initialTransactions = JSON.parse(localStorage.getItem("transactions")) || [];
-  const [transactions, settransactions] = useState(initialTransactions);
-
-  // Save to localStorage whenever transactions change
-  useEffect(() => {
-    localStorage.setItem("transactions", JSON.stringify(transactions));
-  }, [transactions]);
-
-  return (
-    <div className='App'>
-      <Typography variant="h4" component="h1" className="app-title">
-        Expense Tracker
-      </Typography>
-      
-      <Box className="main-container">
-        <Box className="panel panel-left">
-          <Balance tranx={transactions} />
-          <ExpenseCard tranx={transactions} />
-          <NewTransactions settransactions={settransactions} />
-        </Box>
-        
-        <Box className="panel panel-right">
-          <Transactions 
-            transactions={transactions} 
-            settransactions={settransactions} 
-          />
-        </Box>
-      </Box>
-    </div>
-  )
-}
-
-export default App

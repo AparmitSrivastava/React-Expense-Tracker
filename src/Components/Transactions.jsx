@@ -1,4 +1,3 @@
-
 import { Box, Typography, IconButton } from '@mui/material';
 import { Delete, ReceiptLong } from '@mui/icons-material';
 

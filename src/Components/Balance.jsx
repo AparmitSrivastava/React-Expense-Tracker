@@ -1,29 +1,3 @@
-// import React from 'react'
-// import {Box, styled, Typography} from "@mui/material"
-// // import { amET } from '@mui/material/locale';
-
-// const BalanceText = styled(Typography)`
-// font-size:20px
-
-// `
-
-// const Balance = ({tranx}) => {
-
-//     const amount = tranx.map(e=> e.amount); //amount contains the values
-//     const total = amount.reduce((acc, item) => {
-//         return acc + item;
-//       }, 0).toFixed(2); //reduce takes 2 values- a callback func and a initial value
-//   return (
-//     <Box>
-//       <BalanceText>Balance : ₹{total}</BalanceText>
-//     </Box>
-//   )
-// }
-
-// export default Balance
-
-
-
 import { Typography, Box } from '@mui/material';
 import { AccountBalanceWallet } from '@mui/icons-material';
 
@@ -53,3 +27,31 @@ const Balance = ({ tranx }) => {
 };
 
 export default Balance;
+
+
+
+
+
+// import React from 'react'
+// import {Box, styled, Typography} from "@mui/material"
+// // import { amET } from '@mui/material/locale';
+
+// const BalanceText = styled(Typography)`
+// font-size:20px
+
+// `
+
+// const Balance = ({tranx}) => {
+
+//     const amount = tranx.map(e=> e.amount); //amount contains the values
+//     const total = amount.reduce((acc, item) => {
+//         return acc + item;
+//       }, 0).toFixed(2); //reduce takes 2 values- a callback func and a initial value
+//   return (
+//     <Box>
+//       <BalanceText>Balance : ₹{total}</BalanceText>
+//     </Box>
+//   )
+// }
+
+// export default Balance
