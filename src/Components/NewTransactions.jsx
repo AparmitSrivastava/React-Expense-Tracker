@@ -96,20 +96,6 @@ export default NewTransactions;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import React from 'react'
 // import { Box, styled, Typography, Card, CardContent, TextField ,Button } from "@mui/material"
 // import { useState } from 'react'
